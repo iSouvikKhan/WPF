@@ -17,12 +17,11 @@ namespace Optimize.WPF.ViewModels
 
         public NavigationBarViewModel NavigationBarViewModel { get; }
         public ICommand NavigateAccountCommand { get; }
+        public ICommand NavigateLoginCommand { get; }
 
-        public HomeViewModel(NavigationBarViewModel navigationBarViewModel, NavigationService<LoginViewModel> loginNavigationService)
+        public HomeViewModel(NavigationBarViewModel navigationBarViewModel)
         {
             NavigationBarViewModel = navigationBarViewModel;
-
-            NavigateAccountCommand = new NavigateCommand<LoginViewModel>(loginNavigationService);
         }
     }
 }

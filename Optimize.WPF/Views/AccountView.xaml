@@ -39,7 +39,7 @@
         Padding="5 2"
         HorizontalAlignment="Left"
         Command="{Binding NavigateHomeCommand}"
-        Content="Home" />
+        Content="Account" />
 
     </Grid>
     </Grid>

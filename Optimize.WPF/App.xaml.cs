@@ -16,13 +16,11 @@ namespace Optimize.WPF
     /// </summary>
     public partial class App : Application
     {
-        private readonly AccountStore _accountStore;
         private readonly NavigationStore _navigationStore;
         private readonly NavigationBarViewModel _navigationBarViewModel;
 
         public App()
         {
-            _accountStore = new AccountStore();
             _navigationStore = new NavigationStore();
             _navigationBarViewModel = new NavigationBarViewModel(
                 CreateHomeNavigationService(),
@@ -33,8 +31,7 @@ namespace Optimize.WPF
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            NavigationService<HomeViewModel> homeNavigationService = CreateHomeNavigationService();
-            homeNavigationService.Navigate();
+            _navigationStore.CurrentViewModel = new HomeViewModel(_navigationBarViewModel);
 
             MainWindow = new MainWindow()
             {
@@ -50,17 +47,17 @@ namespace Optimize.WPF
         {
             return new NavigationService<HomeViewModel>(
                 _navigationStore, 
-                () => new HomeViewModel(_navigationBarViewModel, CreateLoginNavigationService() ));
+                () => new HomeViewModel(_navigationBarViewModel));
         }
 
         private NavigationService<LoginViewModel> CreateLoginNavigationService()
         {
-            return new NavigationService<LoginViewModel>(_navigationStore, () => new LoginViewModel(_accountStore, CreateAccountNavigationService() ));
+            return new NavigationService<LoginViewModel>(_navigationStore, () => new LoginViewModel(_navigationBarViewModel));
         }
 
         private NavigationService<AccountViewModel> CreateAccountNavigationService()
-        {
-            return new NavigationService<AccountViewModel>(_navigationStore, () => new AccountViewModel(_navigationBarViewModel, _accountStore, CreateHomeNavigationService() ));
+            {
+            return new NavigationService<AccountViewModel>(_navigationStore, () => new AccountViewModel(_navigationBarViewModel));
         }
     }
 }

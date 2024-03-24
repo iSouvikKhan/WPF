@@ -3,14 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Optimize.WPF.Views"
+             xmlns:local="clr-namespace:Optimize.WPF.Views" 
+             xmlns:components="clr-namespace:Optimize.WPF.Components"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid
-    MaxWidth="1000"
-    Margin="20"
-    HorizontalAlignment="Center"
-    VerticalAlignment="Center">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <components:NavigationBar Grid.Row="0" DataContext="{Binding NavigationBarViewModel}"/>
+
+        <Grid Grid.Row="1" MaxWidth="1000" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
@@ -46,4 +53,6 @@
         Command="{Binding LoginCommand}"
         Content="Login" />
     </Grid>
+    </Grid>
+
 </UserControl>
