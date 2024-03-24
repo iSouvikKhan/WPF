@@ -45,13 +45,6 @@
             </StackPanel>
         </StackPanel>
 
-        <Button
-        Grid.Row="2"
-        Margin="0 20 0 0"
-        Padding="5 2"
-        HorizontalAlignment="Left"
-        Command="{Binding LoginCommand}"
-        Content="Login" />
     </Grid>
     </Grid>
 

@@ -14,15 +14,18 @@ namespace Optimize.WPF.ViewModels
         public ICommand NavigateHomeCommand { get; }
         public ICommand NavigateAccountCommand { get; }
         public ICommand NavigateLoginCommand { get; }
+        public ICommand NavigatePerformanceCommand { get; }
 
         public NavigationBarViewModel(NavigationService<HomeViewModel> homeNavigationService, 
             NavigationService<AccountViewModel> accountNavigationService, 
-            NavigationService<LoginViewModel> loginNavigationService
+            NavigationService<LoginViewModel> loginNavigationService,
+            NavigationService<PerformanceViewModel> performanceNavigationService
             )
         {
             NavigateHomeCommand = new NavigateCommand<HomeViewModel>(homeNavigationService);
             NavigateAccountCommand = new NavigateCommand<AccountViewModel>(accountNavigationService);
             NavigateLoginCommand = new NavigateCommand<LoginViewModel>(loginNavigationService);
+            NavigatePerformanceCommand = new NavigateCommand<PerformanceViewModel>(performanceNavigationService);
         }
     }
 }

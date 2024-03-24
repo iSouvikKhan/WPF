@@ -25,7 +25,8 @@ namespace Optimize.WPF
             _navigationBarViewModel = new NavigationBarViewModel(
                 CreateHomeNavigationService(),
                 CreateAccountNavigationService(),
-                CreateLoginNavigationService()
+                CreateLoginNavigationService(),
+                CreatePerformanceNavigationService()
                 );
         }
 
@@ -58,6 +59,11 @@ namespace Optimize.WPF
         private NavigationService<AccountViewModel> CreateAccountNavigationService()
             {
             return new NavigationService<AccountViewModel>(_navigationStore, () => new AccountViewModel(_navigationBarViewModel));
+        }
+
+        private NavigationService<PerformanceViewModel> CreatePerformanceNavigationService()
+        {
+            return new NavigationService<PerformanceViewModel>(_navigationStore, () => new PerformanceViewModel(_navigationBarViewModel));
         }
     }
 }

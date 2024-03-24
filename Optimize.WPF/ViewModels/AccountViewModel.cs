@@ -9,7 +9,8 @@ namespace Optimize.WPF.ViewModels
         public NavigationBarViewModel NavigationBarViewModel { get; }
         public ICommand NavigateHomeCommand { get; }
         public ICommand NavigateLoginCommand { get; }
-        
+        public ICommand NavigatePerformanceCommand { get; }
+
 
         public AccountViewModel(NavigationBarViewModel navigationBarViewModel)
         {

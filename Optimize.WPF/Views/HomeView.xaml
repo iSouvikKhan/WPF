@@ -34,14 +34,6 @@
             Grid.Row="1"
             Margin="0 20 0 0"
             Text="{Binding WelcomeMessage}" />
-
-            <Button
-            Grid.Row="2"
-            Margin="0 20 0 0"
-            Padding="5 2"
-            HorizontalAlignment="Left"
-            Command="{Binding NavigateAccountCommand}"
-            Content="Home" />
         </Grid>
 
     </Grid>

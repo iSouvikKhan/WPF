@@ -1,27 +1,22 @@
-﻿using Optimize.WPF.Commands;
-using Optimize.WPF.Services;
-using Optimize.WPF.Stores;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Windows.Navigation;
 
 namespace Optimize.WPF.ViewModels
 {
-    public class HomeViewModel : ViewModelBase
+    public class PerformanceViewModel : ViewModelBase
     {
-        public string WelcomeMessage => "Welcome to Home";
+        public string WelcomeMessage => "Welcome to Performance";
 
         public NavigationBarViewModel NavigationBarViewModel { get; }
-
+        public ICommand NavigateHomeCommand { get; }
         public ICommand NavigateLoginCommand { get; }
         public ICommand NavigateAccountCommand { get; }
-        public ICommand NavigatePerformanceCommand { get; }
 
-        public HomeViewModel(NavigationBarViewModel navigationBarViewModel)
+        public PerformanceViewModel(NavigationBarViewModel navigationBarViewModel)
         {
             NavigationBarViewModel = navigationBarViewModel;
         }
